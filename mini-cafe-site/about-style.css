@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header, main, section, footer {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Top Section (Title & Description) - Flexbox */
+.top-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Two-Column Section - CSS Grid */
+.story-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.story-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Bottom Section (Values) - CSS Grid */
+.values-section {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.value-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    border-top: 1px solid #ddd;
+    margin-top: 40px;
+}
+
+/* Responsiveness with Media Queries */
+@media (max-width: 768px) {
+    .story-section {
+        grid-template-columns: 1fr; /* Stack into one column */
+        text-align: center;
+    }
+
+    .story-image {
+        order: -1; /* Place image at the top on small screens */
+    }
+}
