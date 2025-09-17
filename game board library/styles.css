@@ -1,0 +1,221 @@
+/* FILE: styles.css */
+
+/* Reset & Base */
+* {box-sizing: border-box; margin: 0; padding: 0;}
+:root {
+  --bg: #fdfdfd;
+  --text: #222;
+  --primary: #2c3e50;
+  --secondary: #3498db;
+  --accent: #f39c12;
+  --light: #ecf0f1;
+  --dark: #1a252f;
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  line-height: 1.6;
+}
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Header & Navigation */
+header {
+  background: var(--primary);
+  color: #fff;
+  padding: 1rem;
+  border-bottom: 4px solid var(--accent);
+  text-align: center;
+}
+header h1 {
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+}
+nav a {
+  margin: 0 0.5rem;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s, transform 0.2s;
+}
+nav a:hover {
+  color: var(--accent);
+  transform: scale(1.05);
+}
+
+/* Layout */
+main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+section {margin-bottom: 2rem;}
+
+/* Hero */
+.hero {
+  background: var(--light);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+.hero h2 {font-size: 2rem; margin-bottom: 1rem; color: var(--primary);}
+.hero p {
+  font-size: 1.1rem;
+  display: inline-block;
+  overflow: hidden;
+  white-space: normal; /* allow wrapping */
+  word-wrap: break-word; /* break long words if needed */
+}
+
+/* Cards */
+.card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  margin: 1rem 0;
+  transition: transform 0.3s, box-shadow 0.3s;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: cardFadeUp 1s ease forwards;
+  animation-delay: 2.5s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+}
+.card h4 {margin-bottom: 0.5rem; color: var(--secondary);}
+
+/* Buttons */
+.button, .cta, button, input[type="submit"] {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  background: var(--secondary);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.2s;
+  border: none;
+  cursor: pointer;
+}
+.button:hover, .cta:hover, button:hover, input[type="submit"]:hover {
+  background: var(--accent);
+  transform: scale(1.05);
+}
+
+/* Forms */
+form {max-width: 600px; margin: auto; display: flex; flex-direction: column; gap: 1rem;}
+label {font-weight: bold;}
+input, textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border 0.3s;
+}
+input:focus, textarea:focus {
+  border: 1px solid var(--secondary);
+  outline: none;
+}
+
+/* FAQ */
+details {
+  margin: 0.5rem 0;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: var(--light);
+}
+summary {cursor: pointer; font-weight: bold;}
+
+/* Gallery */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+.gallery-grid img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  background: var(--dark);
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: auto;
+}
+footer a {color: var(--accent); text-decoration: none; transition: color 0.3s;}
+footer a:hover {text-decoration: underline; color: var(--secondary);}
+
+/* Animations — Home page only */
+body.home header {
+  animation: slideDown 0.8s ease-out;
+}
+body.home main {
+  animation: fadeIn 1s ease;
+}
+body.home .hero h2 {
+  animation: textSlideUp 1s ease;
+  animation-delay: 0.3s;
+  animation-fill-mode: both;
+}
+body.home .hero p {
+  animation: typing 3s steps(60, end);
+  animation-delay: 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+@keyframes slideDown {
+  from {transform: translateY(-40px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
+}
+@keyframes textSlideUp {
+  from {transform: translateY(20px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
+}
+@keyframes typing {
+  from {width: 0;}
+  to {width: 100%;}
+}
+@keyframes cardFadeUp {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+
+@media (max-width: 600px) {
+  nav a {display: block; margin: 0.5rem 0;}
+  .hero h2 {font-size: 1.5rem;}
+}
+
+.hero p {
+  font-size: 1.1rem;
+  display: inline-block;
+  overflow: hidden;
+  white-space: normal; 
+  word-wrap: break-word; 
+  border-right: 2px solid var(--primary); 
+  animation: typing 5s steps(80, end), blink 0.75s step-end infinite;
+  animation-delay: 1s;
+  animation-fill-mode: both;
+}
