@@ -70,16 +70,35 @@ iframe {
 }
 
 .custom-link {
-    text-decoration: none; /* Removes underline */
-    color: #ffffff; /* Set your desired color (e.g., blue) */
+    text-decoration: none; 
+    color: #ffffff; 
 }
 
 .custom-link:visited {
-    color: #ffffff; /* Same color for visited links */
+    color: #ffffff; 
 }
 
 .custom-link:hover,
 .custom-link:active {
-    color: #06559e; /* Same color for hover and active states */
-    text-decoration: none; /* Ensure no underline on hover */
+    color: #06559e; 
+    text-decoration: none; 
 }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+

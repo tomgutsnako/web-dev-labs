@@ -1,37 +1,130 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Chess — Game Spotlight</title>
-<meta name="description" content="Learn the basics of Chess and how to teach it.">
-<link rel="stylesheet" href="styles.css">
-<style>
-  .centered-image {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Spotlight: Chess — Board Game Library</title>
+  <meta name="description" content="Learn about Chess: setup, rules, and strategy insights.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #222;
+      background: #fff;
+    }
+    header {
+      padding: 4rem 2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin: 0;
+      line-height: 1;
+    }
+    header .tagline {
+      max-width: 400px;
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #666;
+    }
+    nav {
+      width: 100%;
+      margin-top: 1rem;
+    }
+    nav a {
+      margin-right: 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      color: #222;
+    }
+    .subtext {
+      display: flex;
+      justify-content: space-around;
+      font-size: 0.9rem;
+      color: #666;
+      margin: 2rem 1rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+      text-align: center;
+    }
+    main img {
+      display: block;
+      max-width: 800px;
+      width: 100%;
+      height: auto;
+      margin: 0 auto 2rem;
+    }
+    .content {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      color: #444;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    footer {
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    footer a {
+      text-decoration: none;
+      color: #222;
+      font-weight: bold;
+    }
+    @media (min-width: 900px) {
+      header { align-items: center; }
+    }
+  </style>
 </head>
-<body class="page">
-<header>
-<h1>Game Spotlight: Chess</h1>
-<nav>
-<a href="index.html">Home</a>
-<a href="games.html">Games</a>
-</nav>
-</header>
-<main>
-<section>
-<h2><center>Pieces & Moves</center></h2>
-<img class="centered-image" src="https://blog.houseofstaunton.com/wp-content/uploads/2024/06/mammoth-ivory-chess-set.jpg" alt="Chess board">
-<p>Discover the rules of Chess, how each piece moves, and tips for teaching new players effectively.</p>
-</section>
-</main>
-<footer>
-<a href="faq.html">Visit FAQ</a>
-</footer>
+<body>
+  <header>
+    <h1>Game Spotlight: Chess</h1>
+    <div class="tagline">
+      The timeless battle of kings, queens, knights, and pawns. A perfect blend of logic, foresight, and creativity.
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="games.html">Games</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="gallery.html">Gallery</a>
+    </nav>
+  </header>
+
+  <section class="subtext">
+    <div>Classic Rules</div>
+    <div>Strategic Depth</div>
+    <div>Global Legacy</div>
+  </section>
+
+  <main>
+    <img src="https://blog.houseofstaunton.com/wp-content/uploads/2024/06/mammoth-ivory-chess-set.jpg" alt="Chess pieces on a board">
+
+    <div class="content">
+      <h2>Overview</h2>
+      <p>
+        Chess is one of the oldest and most enduring games in the world. Each player controls 16 pieces, aiming to checkmate the opposing king
+        through strategy, tactics, and careful planning. Played for centuries, chess combines elegance with endless complexity.
+      </p>
+
+      <h3>Quick Details</h3>
+      <ul>
+        <li><strong>Origins:</strong> India, around the 6th century</li>
+        <li><strong>Players:</strong> 2</li>
+        <li><strong>Playtime:</strong> ~10 minutes to several hours</li>
+        <li><strong>Notable:</strong> Recognized as both a game and a sport worldwide</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <a href="reviews.html">Back to Reviews</a>
+  </footer>
 </body>
 </html>
