@@ -6,11 +6,61 @@
   <title>FAQ - Board Game Library</title>
   <link rel="stylesheet" href="styles.css">
   <style>
+    nav {
+      background-color: #000;
+      padding: 1rem 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      color: #fff;
+      font-size: 1rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #fff;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #f0f0f0;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a.active {
+      color: #f0f0f0;
+      font-weight: bold;
+    }
+
+    header h1 {
+      text-align: center;
+      margin: 2rem 0 1rem;
+      font-size: 2.5rem;
+      color: #222;
+    }
+
     .faq-wrapper {
       background: #fff;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       padding: 4rem 1rem;
       min-height: 100vh;
     }
@@ -39,60 +89,40 @@
 
     .faq-item h3 {
       font-size: 1.3rem;
-      color: #000000; 
+      color: #000; 
       margin-bottom: 0.5rem;
     }
 
     .faq-item p {
       font-size: 1rem;
-      color: #000000;
+      color: #000;
       line-height: 1.6;
       margin-left: 1rem;
     }
 
-  
-    nav ul {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      list-style: none;
-      padding: 0;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: #1e3a8a;
-      font-size: 1rem;
-      padding: 0.3rem 0.5rem;
-      transition: all 0.3s ease;
-    }
-
-    nav ul li a:hover {
-      color: #000000;
-      border-bottom: 2px solid #2563eb;
-    }
-
-    nav ul li a.active {
-      color: #000000;
-      font-weight: bold;
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      background-color: #111;
+      color: #fff;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
-  <header> <br>
-    <h1><center>FAQ</center></h1>
-    <nav>
-         <br>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="games.html">Games</a></li>
-        <li><a href="spotlights.html">Spotlights</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="faq.html" class="active">FAQ</a></li>
-        <li><a href="credits.html">Credits</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="games.html">Games</a>
+    <a href="spotlights.html">Spotlights</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="faq.html" class="active">FAQ</a>
+    <a href="credits.html">Credits</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <header>
+    <h1>FAQ</h1>
   </header>
 
   <main>
@@ -127,5 +157,6 @@
   <footer>
     <p>&copy; 2025 Board Game Library</p>
   </footer>
+
 </body>
 </html>
