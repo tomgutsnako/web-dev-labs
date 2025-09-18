@@ -32,14 +32,62 @@
   </main>
 
 
-  <footer style="color: white;">
-    <nav>
-      <a href="index.html">Home</a> |
-      <a href="games.html">Games</a> |
-      <a href="how-to-play.html">How to Play</a>
-    </nav>
-    <p>&copy; Board Game Library</p>
-  </footer>
+<footer>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="games.html">Games</a>
+    <a href="how-to-play.html">How to Play</a>
+  </nav>
+  <p>&copy; Board Game Library</p>
+</footer>
+
+<style>
+footer {
+  background-color: #111;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+footer p {
+  margin-top: 0.5rem;
+  color: #fff;
+}
+
+footer nav {
+  margin-bottom: 0.5rem;
+}
+
+footer nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 0.8rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+footer nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -2px;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+
+footer nav a:hover::after {
+  width: 100%;
+}
+
+footer nav a:hover {
+  color: #f0f0f0;
+}
+</style>
+
 
 </body>
 </html>
