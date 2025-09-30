@@ -13,7 +13,7 @@ header, main, section, footer {
     margin: 0 auto;
 }
 
-/* Top Section (Title & Description) - Flexbox */
+
 .top-section {
     text-align: center;
     padding: 40px 20px;
@@ -21,7 +21,7 @@ header, main, section, footer {
     border-bottom: 1px solid #ddd;
 }
 
-/* Two-Column Section - CSS Grid */
+
 .story-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -37,7 +37,7 @@ header, main, section, footer {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Bottom Section (Values) - CSS Grid */
+
 .values-section {
     margin-top: 40px;
     text-align: center;
@@ -65,14 +65,14 @@ footer {
     margin-top: 40px;
 }
 
-/* Responsiveness with Media Queries */
+
 @media (max-width: 768px) {
     .story-section {
-        grid-template-columns: 1fr; /* Stack into one column */
+        grid-template-columns: 1fr; 
         text-align: center;
     }
 
     .story-image {
-        order: -1; /* Place image at the top on small screens */
+        order: -1; 
     }
 }

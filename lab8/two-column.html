@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexible Two-Column Layout</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .text-section {
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .image-section img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                flex-direction: row;
+            }
+            .text-section, .image-section {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="text-section">
+            <h2>About the Photo</h2>
+            <p>This is a placeholder for some text. On small screens, this section will appear on top of the image. On wider screens (768px and above), it will be positioned to the left of the image.</p>
+        </div>
+        <div class="image-section">
+            <img src="https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*" alt="Placeholder Image">
+        </div>
+    </div>
+
+</body>
+</html>
