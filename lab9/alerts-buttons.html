@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alert and Button Showcase</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="text-center p-5">
+
+  <h2>Alert and Button Showcase</h2>
+
+  <div class="alert alert-success mt-3">This is a success alert.</div>
+  <div class="alert alert-danger">This is a danger alert.</div>
+  <div class="alert alert-warning">This is a warning alert.</div>
+
+  <button class="btn btn-primary m-2" onclick="changeBg('lightyellow')">Warning</button>
+  <button class="btn btn-success m-2" onclick="changeBg('lightgreen')">Success</button>
+  <button class="btn btn-danger m-2" onclick="changeBg('lightcoral')">Danger</button>
+
+  <script>
+    function changeBg(color) {
+      document.body.style.backgroundColor = color;
+    }
+  </script>
+
+</body>
+</html>
