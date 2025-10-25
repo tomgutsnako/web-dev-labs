@@ -5,3 +5,4 @@ function order(item) {
   orders.push(item);
   document.getElementById("summary").innerText = "Orders: " + orders.join(", ");
 }
+
