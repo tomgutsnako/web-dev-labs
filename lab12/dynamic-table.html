@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Table</title>
+  <style>
+    table {
+      width: 60%;
+      border-collapse: collapse;
+      margin: 20px auto;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h2>Dynamic Table Example</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+
+  <script>
+    const items = [
+      { name: 'Coffee', quantity: 2, price: 50 },
+      { name: 'Cake', quantity: 1, price: 120 },
+      { name: 'Sandwich', quantity: 3, price: 90 }
+    ];
+
+    const tbody = document.getElementById('tableBody');
+
+    for (let item of items) {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${item.name}</td>
+        <td>${item.quantity}</td>
+        <td>${item.price}</td>
+      `;
+      tbody.appendChild(row);
+    }
+  </script>
+</body>
+</html>
