@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spotlight: Splendor — Board Game Library</title>
+  <meta name="description" content="Learn about Splendor: setup, rules, and strategy insights.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    nav { background-color: #000; padding: 1rem 0; text-align: center; position: sticky; top: 0; z-index: 100; }
+    nav a { margin: 0 1rem; text-decoration: none; font-weight: bold; color: #fff; font-size: 1rem; position: relative; transition: color 0.3s ease; }
+    nav a::after { content: ""; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background-color: #fff; transition: width 0.3s ease; }
+    nav a:hover { color: #f0f0f0; }
+    nav a:hover::after { width: 100%; }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body class="bg-light">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="games.html">Games</a>
+    <a href="reviews.html">Reviews</a>
+    <a href="gallery.html">Gallery</a>
+  </nav>
+
+  <header class="container text-center py-5 fade-in">
+    <h1>Game Spotlight: Splendor</h1>
+    <p class="lead text-muted">A gem-collecting, engine-building game that’s easy to learn but hard to master.</p>
+  </header>
+
+  <section class="container text-center fade-in">
+    <div class="row text-muted">
+      <div class="col-md-4">Elegant Design</div>
+      <div class="col-md-4">Strategic Play</div>
+      <div class="col-md-4">Endless Replayability</div>
+    </div>
+  </section>
+
+  <main class="container fade-in my-5">
+<img 
+  src="https://meeplelikeus.b-cdn.net/wp-content/uploads/2016/06/20160604_103419.jpg" 
+  class="img-fluid rounded shadow mb-4 d-block mx-auto" 
+  alt="Splendor board game with gems">
+  
+    <h2>Overview</h2>
+    <p>In Splendor, players act as Renaissance merchants acquiring mines, transportation, and artisans to produce precious gems. Build an efficient engine to earn prestige and attract noble patrons.</p>
+    <h3>Quick Details</h3>
+    <ul>
+      <li><strong>Designer:</strong> Marc André</li>
+      <li><strong>Players:</strong> 2–4</li>
+      <li><strong>Playtime:</strong> ~30 minutes</li>
+      <li><strong>Released:</strong> 2014</li>
+    </ul>
+  </main>
+
+  <footer class="bg-dark text-white text-center py-3">
+    <a href="reviews.html" class="text-white text-decoration-none">Back to Reviews</a>
+    <p class="mb-0">© <span id="year"></span> Board Game Library</p>
+  </footer>
+
+  <button id="scrollTopBtn" class="btn btn-primary position-fixed bottom-0 end-0 m-4" style="display:none;">↑</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const scrollBtn=document.getElementById("scrollTopBtn");
+    window.onscroll=()=>{scrollBtn.style.display=window.scrollY>300?"block":"none"};
+    scrollBtn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
+    const fadeEls=document.querySelectorAll(".fade-in");
+    const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add("visible")})},{threshold:0.1});
+    fadeEls.forEach(x=>obs.observe(x));
+    document.getElementById("year").textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
