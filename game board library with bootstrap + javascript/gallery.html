@@ -6,13 +6,67 @@
   <title>Gallery — Board Game Library</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    nav { background-color: #000; padding: 1rem 0; text-align: center; position: sticky; top: 0; z-index: 100; }
-    nav a { margin: 0 1rem; text-decoration: none; font-weight: bold; color: #fff; font-size: 1rem; position: relative; transition: color 0.3s ease; }
-    nav a::after { content: ""; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background-color: #fff; transition: width 0.3s ease; }
-    nav a:hover { color: #f0f0f0; }
-    nav a:hover::after { width: 100%; }
-    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease; }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    nav { 
+      background-color: #000; 
+      padding: 1rem 0; 
+      text-align: center; 
+      position: sticky; 
+      top: 0; 
+      z-index: 100; 
+    }
+
+    nav a { 
+      margin: 0 1rem; 
+      text-decoration: none; 
+      font-weight: bold; 
+      color: #fff; 
+      font-size: 1rem; 
+      position: relative; 
+      transition: color 0.3s ease; 
+    }
+
+    nav a::after { 
+      content: ""; 
+      position: absolute; 
+      width: 0; 
+      height: 2px; 
+      bottom: -4px; 
+      left: 0; 
+      background-color: #fff; 
+      transition: width 0.3s ease; 
+    }
+
+    nav a:hover { 
+      color: #f0f0f0; 
+    }
+
+    nav a:hover::after { 
+      width: 100%; 
+    }
+
+    .fade-in { 
+      opacity: 0; 
+      transform: translateY(20px); 
+      transition: opacity 1s ease, transform 1s ease; 
+    }
+
+    .fade-in.visible { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
   </style>
 </head>
 <body class="bg-light">
@@ -29,9 +83,21 @@
 
   <main class="container fade-in my-5">
     <div class="row g-3">
-      <div class="col-md-4"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Board_game_pieces.jpg" class="img-fluid rounded shadow" alt="Board game pieces"></div>
-      <div class="col-md-4"><img src="https://images.unsplash.com/photo-1600962815726-457c1309f6c1" class="img-fluid rounded shadow" alt="Board game setup"></div>
-      <div class="col-md-4"><img src="https://images.unsplash.com/photo-1565451511531-2d20ad58e27d" class="img-fluid rounded shadow" alt="Playing board games"></div>
+      <div class="col-md-4">
+        <img src="https://img.freepik.com/premium-photo/group-people-playing-board-game-dark-room_662214-34727.jpg" class="img-fluid rounded shadow" alt="Board game pieces">
+      </div>
+      <div class="col-md-4">
+        <img src="https://theideaslab.com/wp-content/uploads/2023/11/Shasn-board-game.png" class="img-fluid rounded shadow" alt="Board game setup">
+      </div>
+      <div class="col-md-4">
+        <img src="https://www.edgeempower.com/wp-content/uploads/2022/09/group-of-people-working-together-in-the-cafe-2021-12-23-15-24-34-utc.jpg" class="img-fluid rounded shadow" alt="Playing board games">
+      </div>
+    </div>
+     <div class="text-center mt-5">
+      <p class="lead text-muted">
+        Playing board games brings people closer together — it makes the community and connection so much more fun, engaging, 
+        and meaningful. Every game shared is another story told, another laugh echoed, and another bond strengthened.
+      </p>
     </div>
   </main>
 
@@ -40,15 +106,24 @@
   </footer>
 
   <button id="scrollTopBtn" class="btn btn-primary position-fixed bottom-0 end-0 m-4" style="display:none;">↑</button>
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    const scrollBtn=document.getElementById("scrollTopBtn");
-    window.onscroll=()=>{scrollBtn.style.display=window.scrollY>300?"block":"none"};
-    scrollBtn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
-    const fadeEls=document.querySelectorAll(".fade-in");
-    const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add("visible")})},{threshold:0.1});
-    fadeEls.forEach(x=>obs.observe(x));
-    document.getElementById("year").textContent=new Date().getFullYear();
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = () => {
+      scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    };
+    scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
+    const fadeEls = document.querySelectorAll(".fade-in");
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(el => obs.observe(el));
+
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
