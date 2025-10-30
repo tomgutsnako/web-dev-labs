@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validator</title>
+    <style>
+        #message { margin-top: 10px; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+
+    <h1>Email Check</h1>
+    <form id="emailForm">
+        <label for="email">Email:</label>
+        <input type="text" id="email">
+        <button type="submit">Validate</button>
+    </form>
+
+    <p id="message"></p>
+
+    <script>
+        const emailForm = document.getElementById('emailForm');
+        const emailInput = document.getElementById('email');
+        const messageP = document.getElementById('message');
+
+        emailForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const email = emailInput.value;
+
+            if (email.includes('@')) {
+                messageP.textContent = "Email accepted!";
+                messageP.className = 'success';
+            } else {
+                messageP.textContent = "Invalid email. Must include an '@'.";
+                messageP.className = 'error';
+            }
+        });
+    </script>
+
+</body>
+</html>

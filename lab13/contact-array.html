@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form with Array</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        form { margin-bottom: 20px; }
+        div { margin-bottom: 10px; }
+        input, textarea { width: 300px; padding: 5px; margin-bottom: 10px; }
+        #messageList { border: 1px solid #ccc; padding: 10px; }
+        .message-item { border-bottom: 1px solid #eee; padding: 8px 0; }
+        .message-item strong { display: block; }
+    </style>
+</head>
+<body>
+
+    <h1>Contact Us</h1>
+    <form id="contactForm">
+        <div>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" required>
+        </div>
+        <div>
+            <label for="message">Message:</label><br>
+            <textarea id="message" rows="4" required></textarea>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Submitted Messages:</h2>
+    <div id="messageList">No messages yet.</div>
+
+    <script>
+        const allMessages = [];
+        const form = document.getElementById('contactForm');
+        const messageListDiv = document.getElementById('messageList');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            
+            const nameInput = document.getElementById('name');
+            const messageInput = document.getElementById('message');
+            
+            const newEntry = {
+                name: nameInput.value,
+                message: messageInput.value
+            };
+
+            allMessages.push(newEntry);
+            
+            displayMessages();
+            
+            nameInput.value = '';
+            messageInput.value = '';
+        });
+
+        function displayMessages() {
+            messageListDiv.innerHTML = ''; 
+
+            if (allMessages.length === 0) {
+                messageListDiv.innerHTML = 'No messages yet.';
+                return;
+            }
+
+            for (let i = 0; i < allMessages.length; i++) {
+                const entry = allMessages[i];
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'message-item';
+                itemDiv.innerHTML = `<strong>${entry.name} says:</strong> ${entry.message}`;
+                messageListDiv.appendChild(itemDiv);
+            }
+        }
+    </script>
+
+</body>
+</html>

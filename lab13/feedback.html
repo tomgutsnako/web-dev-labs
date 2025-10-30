@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Cafe - Feedback</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        #feedbackForm { max-width: 500px; margin-bottom: 30px; }
+        #feedbackForm div { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        #successMessage {
+            display: none;
+            padding: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        #feedbackList {
+            margin-top: 20px;
+            border-top: 2px solid #000;
+        }
+        .feedback-item {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+        .feedback-item p { margin: 5px 0; }
+        .feedback-item strong { color: #333; }
+    </style>
+</head>
+<body>
+
+    <h1>Give Us Your Feedback</h1>
+    
+    <div id="successMessage">Success! Your feedback has been submitted.</div>
+
+    <form id="feedbackForm">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name">
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email">
+        </div>
+        <div>
+            <label for="message">Feedback Message:</label>
+            <textarea id="message" rows="5"></textarea>
+        </div>
+        <button type="submit">Submit Feedback</button>
+    </form>
+
+    <h2>Previous Feedback:</h2>
+    <div id="feedbackList">
+        <p>No feedback yet.</p>
+    </div>
+
+    <script>
+        const allFeedback = [];
+        const form = document.getElementById('feedbackForm');
+        const successDiv = document.getElementById('successMessage');
+        const feedbackListDiv = document.getElementById('feedbackList');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if (name === "" || email === "" || message === "") {
+                alert("All fields are required.");
+                return;
+            }
+
+            if (!email.includes('@')) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            if (message.length <= 5) {
+                alert("Message must be longer than 5 characters.");
+                return;
+            }
+
+            const newFeedback = {
+                name: name,
+                message: message
+            };
+            allFeedback.push(newFeedback);
+
+            showSuccessMessage();
+            displayFeedback();
+            
+            form.reset();
+        });
+
+        function showSuccessMessage() {
+            successDiv.style.display = 'block';
+            setTimeout(() => {
+                successDiv.style.display = 'none';
+            }, 3000);
+        }
+
+        function displayFeedback() {
+            feedbackListDiv.innerHTML = '';
+
+            if (allFeedback.length === 0) {
+                feedbackListDiv.innerHTML = '<p>No feedback yet.</p>';
+                return;
+            }
+
+            for (let i = 0; i < allFeedback.length; i++) {
+                const item = allFeedback[i];
+                const itemElement = document.createElement('div');
+                itemElement.className = 'feedback-item';
+                itemElement.innerHTML = `
+                    <p><strong>${item.name} says:</strong></p>
+                    <p>${item.message}</p>
+                `;
+                feedbackListDiv.appendChild(itemElement);
+            }
+        }
+    </script>
+
+</body>
+</html>
